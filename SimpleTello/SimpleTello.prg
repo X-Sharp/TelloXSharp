@@ -17,6 +17,7 @@ BEGIN NAMESPACE SimpleTello
 	
 	/// <summary>
 	/// The SimpleTello class.
+	/// Communicate with the Tello, without the TelloLibrary
 	/// </summary>
 	PUBLIC CLASS SimpleTello
 		PRIVATE  _lastResponse := "" AS string
