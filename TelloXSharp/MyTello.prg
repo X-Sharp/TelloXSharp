@@ -41,14 +41,17 @@ BEGIN NAMESPACE TelloXSharp
 			Console.WriteLine("Starting " + DateTime.Now:ToString() + " session.")
 			Console.WriteLine("Initialize OpenCV.....")
 			capture := VideoCapture{}
+			// Where is the Drone ?
 			Console.WriteLine("Open connection to Tello.....")
 			Console.Write("IP Address : (empty for default) ")
 			ipAddress := Console.ReadLine()
 			IF string.IsNullOrEmpty(ipAddress)
 				ipAddress := "192.168.10.1"
 			ENDIF
+			// Get it
 			drone := Tello{ipAddress}
 			modePage := 0
+			// Now, what do you wanna do ?
 			REPEAT
 				cmdCode := MenuPage(modePage)
 				SWITCH cmdCode
@@ -74,6 +77,7 @@ BEGIN NAMESPACE TelloXSharp
 					Console.WriteLine("Time Of Flight :" + drone:State:tof:ToString())
 				CASE 7
 					IF drone:StreamOn() == Tello.Response.OK
+						// Ok, we will receive some images
 						_cancelVideoSource := CancellationTokenSource{}
 						_cancelVideo := _cancelVideoSource:Token
 						_videoTask := Task{VideoThread, _cancelVideo}
@@ -82,11 +86,13 @@ BEGIN NAMESPACE TelloXSharp
 					ENDIF
 				CASE 8
 					IF drone:StreamOff() == Tello.Response.OK
+						// Close the Videao Stream
 						_cancelVideoSource:Cancel()
 						Console.WriteLine("Ok")
 					ENDIF
 				CASE 9
 				CASE 19
+					// Change Menu Page
 					modePage++
 					IF modePage > 1
 						modePage := 0
@@ -116,9 +122,10 @@ BEGIN NAMESPACE TelloXSharp
 						Console.WriteLine("Ok")
 					ENDIF
 				CASE 17
+					// Raw commad
 					Console.Write("Command :")
 					var str := Console.ReadLine()
-					var action := TelloAction{drone, "Texte", str, TelloAction.ActionTypes.Read}
+					var action := TelloAction{drone, "Raw Text", str, TelloAction.ActionTypes.Read}
 					var reponse := drone:SendCommand(action, Tello.TimeOut.Standard)
 					Console.WriteLine(reponse)
 					

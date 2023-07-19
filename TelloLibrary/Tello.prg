@@ -59,6 +59,7 @@ BEGIN NAMESPACE TelloLibrary
 			
 		PRIVATE _cancelPulse AS CancellationToken
 			
+			// The ManualEvent (flag) used to indicate that we need to send a Pulse
 		PRIVATE _pulseEvent AS ManualResetEvent
 			
 		PRIVATE _pulseTello AS Task
@@ -129,7 +130,7 @@ BEGIN NAMESPACE TelloLibrary
 				ENDIF
 			END WHILE
 			
-			#region Command Set
+#region Command Set
 		/// <summary>
 		/// Command response : Wake up the Tello
 		/// </summary>
@@ -297,12 +298,23 @@ BEGIN NAMESPACE TelloLibrary
 			action:SendCommand()
 			RETURN action:Response
 			
-			#endregion
+#endregion
 			
+		/// <summary>
+		/// Send a TelloAction, using a TimeOut
+		/// </summary>
+		/// <param name="action"></param>
+		/// <param name="waitTime"></param>
+		/// <returns></returns>
 		PUBLIC METHOD SendCommand(action AS TelloAction , waitTime AS TimeOut ) AS string
 			RETURN SELF:SendCommand(action, (Long)waitTime)
 			
-			
+		/// <summary>
+		/// Send a TelloAction, using a TimeOut
+		/// </summary>
+		/// <param name="action"></param>
+		/// <param name="waitTime"></param>
+		/// <returns></returns>
 		PUBLIC METHOD SendCommand(action AS TelloAction , waitTime AS Long ) AS string
 			BEGIN LOCK SELF
 				VAR response := ""
@@ -323,7 +335,8 @@ BEGIN NAMESPACE TelloLibrary
 						ENDIF
 						SELF:_commandMode := true
 					ENDIF
-					SELF:_client:SendMessage(action)
+					//
+					SELF:_client:SendAction(action)
 					// Indicate that a message has been sent, no need for pulse
 					SELF:_pulseEvent:Set()
 					// Wait for a reply
@@ -353,7 +366,7 @@ BEGIN NAMESPACE TelloLibrary
 			SELF:_client:Close()
 			SELF:StopPulse()
 			
-			#region Pulse Task
+#region Pulse Task
 		/// <summary>
 		/// Pulse Task
 		/// Send empty Command to the drone, every Tello.TimeOut.Pulse ms if, in the meantime, no message has been sent.
@@ -395,7 +408,7 @@ BEGIN NAMESPACE TelloLibrary
 				SELF:_cancelPulseSource:Cancel()
 			ENDIF
 			
-			#endregion
+#endregion
 	END CLASS
 	
 END NAMESPACE // TelloLibrary

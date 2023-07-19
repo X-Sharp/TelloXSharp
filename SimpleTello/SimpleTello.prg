@@ -47,25 +47,31 @@ BEGIN NAMESPACE SimpleTello
 			IF string.IsNullOrEmpty(address)
 				address := "192.168.10.1"
 			ENDIF
+			//
 			droneEndpoint := IPEndPoint{IPAddress.Parse(address), 8889}
 			localEndPoint := IPEndPoint{IPAddress.Any, 8890}
 			client := UdpClient{localEndPoint}
 			client:Connect(droneEndpoint)
+			// Start the receiving Thread
 			th := Thread{RecvThread}
 			th:Start(client)
+			//
 			WHILE true
 				Console.Write("Command : ")
 				cmd := Console.ReadLine()
 				IF string.IsNullOrEmpty(cmd)
 					EXIT
 				ENDIF
+				// Send Command to the Tello
 				cmdData := Encoding.UTF8:GetBytes(cmd)
 				client:Send(cmdData, cmdData:Length)
 				Thread.Sleep(0)
+				// Something wrong with the receiving Thread ?
 				IF !th:IsAlive
 					th:Start(client)
 				ENDIF
 				Thread.Sleep(0)
+				// Wait for a response
 				WHILE !IsNewReponseAvailable
 				END WHILE
 				Console.WriteLine(LastResponse)

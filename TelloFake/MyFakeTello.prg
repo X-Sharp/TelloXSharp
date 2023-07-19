@@ -87,6 +87,7 @@ BEGIN NAMESPACE TelloFake
 			//
 			cmdPart := command:Split(' ')
 			Console.WriteLine(e"Received Command : " + command)
+			//
 			SWITCH cmdPart[1]
 			CASE "command"
 				Console.WriteLine(e"Mode Command ON")
@@ -98,62 +99,62 @@ BEGIN NAMESPACE TelloFake
 				IF cmdPart:Length == 1
 					WriteError("Missing Up param.")
 				ELSE
-					Console.WriteLine("Move : up " + cmdPart[1])
+					Console.WriteLine("Move : up " + cmdPart[2])
 				ENDIF
 			CASE "down"
 				IF cmdPart:Length == 1
 					WriteError("Missing Down param.")
 				ELSE
-					Console.WriteLine("Move : down " + cmdPart[1])
+					Console.WriteLine("Move : down " + cmdPart[2])
 				ENDIF
 			CASE "left"
 				IF cmdPart:Length == 1
 					WriteError("Missing Left param.")
 				ELSE
-					Console.WriteLine("Move : left " + cmdPart[1])
+					Console.WriteLine("Move : left " + cmdPart[2])
 				ENDIF
 			CASE "right"
 				IF cmdPart:Length == 1
 					WriteError("Missing Right param.")
 				ELSE
-					Console.WriteLine("Move : right " + cmdPart[1])
+					Console.WriteLine("Move : right " + cmdPart[2])
 				ENDIF
 			CASE "forward"
 				IF cmdPart:Length == 1
 					WriteError("Missing Forward param.")
 				ELSE
-					Console.WriteLine("Move : forward " + cmdPart[1])
+					Console.WriteLine("Move : forward " + cmdPart[2])
 				ENDIF
 			CASE "back"
 				IF cmdPart:Length == 1
 					WriteError("Missing Back param.")
 				ELSE
-					Console.WriteLine("Move : back " + cmdPart[1])
+					Console.WriteLine("Move : back " + cmdPart[2])
 				ENDIF
 			CASE "cw"
 				IF cmdPart:Length == 1
 					WriteError("Missing ClockWise param.")
 				ELSE
-					Console.WriteLine("Move : cw " + cmdPart[1])
+					Console.WriteLine("Move : cw " + cmdPart[2])
 				ENDIF
 			CASE "ccw"
 				IF cmdPart:Length == 1
 					WriteError("Missing CounterClockWise param.")
 				ELSE
-					Console.WriteLine("Move : ccw " + cmdPart[1])
+					Console.WriteLine("Move : ccw " + cmdPart[2])
 				ENDIF
 			CASE "flip"
 				IF cmdPart:Length == 1
 					WriteError("Flip Impossible, missing direction.")
 				ELSE
-					Console.WriteLine("Move : flip " + cmdPart[1])
+					Console.WriteLine("Move : flip " + cmdPart[2])
 				ENDIF
 			CASE "speed"
 				IF cmdPart:Length == 1
 					WriteError("Speed Impossible, missing value.")
 				ELSE
-					speed := Convert.ToInt32(cmdPart[1])
-					Console.WriteLine("Speed is {0} cm/s", cmdPart[1])
+					speed := Convert.ToInt32(cmdPart[2])
+					Console.WriteLine("Speed is {0} cm/s", cmdPart[2])
 				ENDIF
 			END SWITCH
 			

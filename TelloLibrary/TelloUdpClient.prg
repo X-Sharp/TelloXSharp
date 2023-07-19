@@ -16,7 +16,8 @@ USING TelloLibrary
 BEGIN NAMESPACE TelloLibrary
 	
 	/// <summary>
-	/// The TelloUdp class.
+	/// The TelloUdpClient class.
+	/// Used to send a Message/Action to the Drone
 	/// </summary>
 	INTERNAL CLASS TelloUdpClient
 		PRIVATE _udpClient AS UdpClient
@@ -41,7 +42,7 @@ BEGIN NAMESPACE TelloLibrary
 			SELF(IPEndPoint{IPAddress.Parse(droneIP), 8889})
 			
 			
-		INTERNAL METHOD SendMessage(action AS TelloAction ) AS void
+		INTERNAL METHOD SendAction(action AS TelloAction ) AS void
 			LOCAL data AS Byte[]
 			//
 			IF SELF:_udpClient == null
