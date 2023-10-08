@@ -1,7 +1,7 @@
 ﻿// SimpleTello.prg
 // Created by    : fabri
 // Creation Date : 7/18/2023 6:00:37 PM
-// Created for   : 
+// Created for   :
 // WorkStation   : FABXPS
 
 
@@ -14,24 +14,24 @@ USING System.Text
 USING System.Threading
 
 BEGIN NAMESPACE SimpleTello
-	
+
 	/// <summary>
 	/// The SimpleTello class.
 	/// Communicate with the Tello, without the TelloLibrary
 	/// </summary>
 	PUBLIC CLASS SimpleTello
 		PRIVATE  _lastResponse := "" AS string
-			
+
 		PRIVATE  IsNewReponseAvailable := false AS Logic
-			
+
 		PRIVATE  PROPERTY LastResponse AS string
 			GET
 				IsNewReponseAvailable := false
 				RETURN _lastResponse
-				
+
 			END GET
 		END PROPERTY
-		
+
 		METHOD Start() AS void
 			LOCAL droneEndpoint AS IPEndPoint
 			LOCAL localEndPoint AS IPEndPoint
@@ -79,8 +79,8 @@ BEGIN NAMESPACE SimpleTello
 			client:Close()
 			Console.WriteLine("Press <return> to Close...")
 			Console.ReadLine()
-			
-			
+
+
 		PUBLIC  METHOD RecvThread(param AS Object ) AS void
 			LOCAL client AS UdpClient
 			LOCAL remoteEndPoint AS IPEndPoint
@@ -97,15 +97,16 @@ BEGIN NAMESPACE SimpleTello
 						IsNewReponseAvailable := true
 						_lastResponse := response
 					ENDIF
-					
+
 				CATCH e AS Exception
 					Console.WriteLine(e:Message)
 					EXIT
 				END TRY
-			END WHILE
+            END WHILE
+            // Ugly !! Direct access to the Console from the Thread, but.. ok, it works :)
 			Console.WriteLine("-->>...")
-			
-			
+
+
 	END CLASS
-	
+
 END NAMESPACE // SimpleTello

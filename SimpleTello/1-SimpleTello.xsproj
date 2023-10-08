@@ -2,17 +2,13 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(XSharpMsBuildDir)\XSharp.Default.props" />
   <PropertyGroup>
-    <ProjectGuid>d56b6653-8cfa-4a04-81fc-74bc58fe9120</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>TelloLibrary</RootNamespace>
-    <AssemblyName>TelloLibrary</AssemblyName>
+    <ProjectGuid>dec58555-cb5f-4436-9cfa-7bc19d367171</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SimpleTello</RootNamespace>
+    <AssemblyName>SimpleTello</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <Name>TelloLibrary</Name>
-    <OutputName>TelloLibrary</OutputName>
-    <StartupObject />
-    <NamedArgs>True</NamedArgs>
-    <CS>True</CS>
-    <AZ>False</AZ>
+    <Name>1-SimpleTello</Name>
+    <OutputName>SimpleTello</OutputName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,15 +27,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MoveAction.prg" />
     <Compile Include="Properties\AssemblyInfo.prg">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RotationAction.prg" />
-    <Compile Include="Tello.prg" />
-    <Compile Include="TelloAction.prg" />
-    <Compile Include="TelloState.prg" />
-    <Compile Include="TelloUdpClient.prg" />
+    <Compile Include="Program.prg">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SimpleTello.prg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

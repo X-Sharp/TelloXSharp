@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "TelloLibrary", "TelloLibrary\TelloLibrary.xsproj", "{D56B6653-8CFA-4A04-81FC-74BC58FE9120}"
+Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "3-TelloLibrary", "TelloLibrary\3-TelloLibrary.xsproj", "{D56B6653-8CFA-4A04-81FC-74BC58FE9120}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3AD36147-69C0-4825-A0B6-5FE7A6FBDACE}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "TelloFake", "TelloFake\TelloFake.xsproj", "{844609C9-9406-40B7-A894-64482CDF15D8}"
 EndProject
-Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "TelloXSharp", "TelloXSharp\TelloXSharp.xsproj", "{32BAED1B-1F25-43E2-82E9-61E20F0A990C}"
+Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "2-TelloXSharp", "TelloXSharp\2-TelloXSharp.xsproj", "{32BAED1B-1F25-43E2-82E9-61E20F0A990C}"
 EndProject
-Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "SimpleTello", "SimpleTello\SimpleTello.xsproj", "{DEC58555-CB5F-4436-9CFA-7BC19D367171}"
+Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "1-SimpleTello", "SimpleTello\1-SimpleTello.xsproj", "{DEC58555-CB5F-4436-9CFA-7BC19D367171}"
 EndProject
 Project("{AA6C8D78-22FF-423A-9C7C-5F2393824E04}") = "TelloFakeGUI", "TelloFakeGUI\TelloFakeGUI.xsproj", "{40C3F4A9-BEBF-48E6-BF0D-7197BEC1734A}"
 EndProject

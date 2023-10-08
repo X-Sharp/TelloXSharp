@@ -8,7 +8,7 @@
     <RootNamespace>TelloXSharp</RootNamespace>
     <AssemblyName>TelloXSharp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <Name>TelloXSharp</Name>
+    <Name>2-TelloXSharp</Name>
     <OutputName>TelloXSharp</OutputName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -138,14 +138,14 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TelloLibrary\TelloLibrary.xsproj">
-      <Name>TelloLibrary</Name>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TelloLibrary\3-TelloLibrary.xsproj">
+      <Name>3-TelloLibrary</Name>
       <Project>{d56b6653-8cfa-4a04-81fc-74bc58fe9120}</Project>
       <Private>True</Private>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PreBuildEvent />

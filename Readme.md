@@ -7,8 +7,8 @@ _**Documentation**_ :
 #### Usage
 1. Create a Tello Object, indicating it's IP Address
 2. Send commands and get replies
-3. If you send TakeOff, a background Thread will run and send a Pulse to the Drone in order to keep the connection alive.
-4. If you send Lan, the background Thread is closed
+3. If you send **TakeOff**, a background Thread will run and send a Pulse to the Drone in order to keep the connection alive.
+4. If you send **Land**, the background Thread is closed
 
 # SimpleTello
 
