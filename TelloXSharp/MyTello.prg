@@ -1,7 +1,7 @@
 ﻿// MyTello.prg
 // Created by    : fabri
 // Creation Date : 7/18/2023 5:53:24 PM
-// Created for   : 
+// Created for   :
 // WorkStation   : FABXPS
 
 
@@ -17,21 +17,21 @@ USING TelloLibrary
 
 
 BEGIN NAMESPACE TelloXSharp
-	
+
 	/// <summary>
 	/// The MyTello class.
 	/// </summary>
 	// Tello1.Program
 	PUBLIC CLASS MyTello
-		
+
 		PRIVATE  _cancelVideoSource AS CancellationTokenSource
-			
+
 		PRIVATE  _cancelVideo AS CancellationToken
-			
+
 		PRIVATE  _videoTask AS Task
-			
+
 		PRIVATE  capture AS VideoCapture
-			
+
 		PUBLIC  METHOD Start( ) AS void
 			LOCAL ipAddress AS string
 			LOCAL drone AS Tello
@@ -128,14 +128,14 @@ BEGIN NAMESPACE TelloXSharp
 					var action := TelloAction{drone, "Raw Text", str, TelloAction.ActionTypes.Read}
 					var reponse := drone:SendCommand(action, Tello.TimeOut.Standard)
 					Console.WriteLine(reponse)
-					
+
 				END SWITCH
 			UNTIL !(cmdCode != 0)
-			Console.WriteLine("Appuyez sur Return pour sortir.")
+			Console.WriteLine("Press Return to leave.")
 			Console.ReadLine()
 			drone:Dispose()
-			
-			
+
+
 		PRIVATE  METHOD MenuPage(page AS Long ) AS Long
 			LOCAL cmd AS string
 			LOCAL cmdCode AS Int32
@@ -150,7 +150,7 @@ BEGIN NAMESPACE TelloXSharp
 				Console.WriteLine("6. State")
 				Console.WriteLine("7. Stream On")
 				Console.WriteLine("8. Stream Off")
-				Console.WriteLine("9. Autre Page")
+				Console.WriteLine("9. Other Page")
 			ELSE
 				Console.WriteLine("0. Quit")
 				Console.WriteLine("1. up 20")
@@ -159,8 +159,8 @@ BEGIN NAMESPACE TelloXSharp
 				Console.WriteLine("4. right 20")
 				Console.WriteLine("5. forward 20")
 				Console.WriteLine("6. backward 20")
-				Console.WriteLine("7. commande Texte")
-				Console.WriteLine("9. Autre Page")
+				Console.WriteLine("7. Text command")
+				Console.WriteLine("9. Other  Page")
 			ENDIF
 			cmd := Console.ReadLine()
 			IF Int32.TryParse(cmd, OUT cmdCode )
@@ -170,12 +170,12 @@ BEGIN NAMESPACE TelloXSharp
 				RETURN cmdCode
 			ENDIF
 			RETURN -1
-			
-			
+
+
 		PRIVATE  METHOD VideoThread() AS void
 			LOCAL encoder AS VideoWriter
 			LOCAL fileName AS string
-			LOCAL seq AS Long
+			LOCAL seq := 0 AS Long
 			//
 			encoder := null
 			fileName := GetUniqueFileName("tello.avi")
@@ -191,7 +191,7 @@ BEGIN NAMESPACE TelloXSharp
 							IF _cancelVideo:IsCancellationRequested
 								_cancelVideo:ThrowIfCancellationRequested()
 							ENDIF
-							
+
 						CATCH e AS Exception
 							Console.WriteLine("Erreur " + e:Message)
 							EXIT
@@ -201,8 +201,8 @@ BEGIN NAMESPACE TelloXSharp
 			ENDIF
 			encoder?:Release()
 			capture:Release()
-			
-			
+
+
 		PRIVATE  METHOD GetUniqueFileName(v AS string ) AS string
 			LOCAL fileName AS string
 			LOCAL ext AS string
@@ -215,7 +215,7 @@ BEGIN NAMESPACE TelloXSharp
 			ext := Path.GetExtension(v)
 			max := 0
 			files := Directory.EnumerateFiles(AppContext.BaseDirectory, fileName + "*" + ext)
-			FOREACH @@file AS string IN files 
+			FOREACH @@file AS string IN files
 				fileInfo := Path.GetFileNameWithoutExtension(@@file)
 				fileInfo := fileInfo:Substring(fileName:Length)
 				number := 0
@@ -224,8 +224,8 @@ BEGIN NAMESPACE TelloXSharp
 				ENDIF
 			NEXT
 			RETURN fileName + (max + 1):ToString("D4") + ext
-			
-			
+
+
 	END CLASS
-	
+
 END NAMESPACE // TelloXSharp
