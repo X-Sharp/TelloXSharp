@@ -73,6 +73,7 @@ BEGIN NAMESPACE SimpleTello
 				Thread.Sleep(0)
 				// Wait for a response
 				WHILE !IsNewReponseAvailable
+					NOP
 				END WHILE
 				Console.WriteLine(LastResponse)
 			END WHILE

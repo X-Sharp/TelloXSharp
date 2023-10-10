@@ -21,5 +21,5 @@
 - Check "Auto Connect" to avoid doing it manually again
 
 ## Problems
-- If your TELLO don't want to take-off, you mais have missed the activation
+- If your TELLO don't want to take-off, you may have missed the activation
 	- In order to activate it, you must use the Android app

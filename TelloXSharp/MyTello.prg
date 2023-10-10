@@ -32,11 +32,11 @@ BEGIN NAMESPACE TelloXSharp
 
 		PRIVATE  capture AS VideoCapture
 
-		PUBLIC  METHOD Start( ) AS void
-			LOCAL ipAddress AS string
+		PUBLIC  METHOD Start( ) AS VOID
+			LOCAL ipAddress AS STRING
 			LOCAL drone AS Tello
-			LOCAL modePage AS Long
-			LOCAL cmdCode AS Long
+			LOCAL modePage AS LONG
+			LOCAL cmdCode AS LONG
 			//
 			Console.WriteLine("Starting " + DateTime.Now:ToString() + " session.")
 			Console.WriteLine("Initialize OpenCV.....")
@@ -124,9 +124,9 @@ BEGIN NAMESPACE TelloXSharp
 				CASE 17
 					// Raw commad
 					Console.Write("Command :")
-					var str := Console.ReadLine()
-					var action := TelloAction{drone, "Raw Text", str, TelloAction.ActionTypes.Read}
-					var reponse := drone:SendCommand(action, Tello.TimeOut.Standard)
+					VAR str := Console.ReadLine()
+					VAR action := TelloAction{drone, "Raw Text", str, TelloAction.ActionTypes.Read}
+					VAR reponse := drone:SendCommand(action, Tello.TimeOut.Standard)
 					Console.WriteLine(reponse)
 
 				END SWITCH
@@ -137,8 +137,8 @@ BEGIN NAMESPACE TelloXSharp
 			drone:Dispose()
 
 
-		PRIVATE  METHOD MenuPage(page AS Long ) AS Long
-			LOCAL cmd AS string
+		PRIVATE  METHOD MenuPage(page AS LONG ) AS LONG
+			LOCAL cmd AS STRING
 			LOCAL cmdCode AS Int32
 			//
 			IF page == 0
@@ -173,17 +173,17 @@ BEGIN NAMESPACE TelloXSharp
 			RETURN -1
 
 
-		PRIVATE  METHOD VideoThread() AS void
+		PRIVATE  METHOD VideoThread() AS VOID
 			LOCAL encoder AS VideoWriter
-			LOCAL fileName AS string
-			LOCAL seq AS Long
+			LOCAL fileName AS STRING
+			LOCAL seq := 0 AS LONG
 			//
-			encoder := null
+			encoder := NULL
 			fileName := GetUniqueFileName("tello.avi")
 			IF capture:Open("udp://0.0.0.0:11111")
 				encoder := VideoWriter{ fileName, FourCC.MJPG, 15.0, Size{capture:FrameWidth, capture:FrameHeight} }
-				BEGIN USING var frame := Mat{}
-					WHILE true
+				BEGIN USING VAR frame := Mat{}
+					WHILE TRUE
 						TRY
 							IF capture:Read(frame)
 								encoder:Write(frame)
@@ -204,13 +204,13 @@ BEGIN NAMESPACE TelloXSharp
 			capture:Release()
 
 
-		PRIVATE  METHOD GetUniqueFileName(v AS string ) AS string
-			LOCAL fileName AS string
-			LOCAL ext AS string
-			LOCAL max AS Long
-			LOCAL files AS IEnumerable<string>
-			LOCAL fileInfo AS string
-			LOCAL number AS Long
+		PRIVATE  METHOD GetUniqueFileName(v AS STRING ) AS STRING
+			LOCAL fileName AS STRING
+			LOCAL ext AS STRING
+			LOCAL max AS LONG
+			LOCAL files AS IEnumerable<STRING>
+			LOCAL fileInfo AS STRING
+			LOCAL number AS LONG
 			//
 			fileName := Path.GetFileNameWithoutExtension(v)
 			ext := Path.GetExtension(v)

@@ -56,7 +56,7 @@ begin namespace TelloFakeGUI
 			ENDIF
 			
 			
-		PRIVATE ASYNC METHOD TelloTask() AS void
+		PRIVATE METHOD TelloTask() AS void
 			LOCAL listener AS UdpClient
 			LOCAL clientEP AS IPEndPoint
 			LOCAL fini AS Logic

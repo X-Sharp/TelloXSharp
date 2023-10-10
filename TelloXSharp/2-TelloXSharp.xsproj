@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\net48\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\net48\OpenCvSharp4.runtime.win.props')" />
   <Import Project="$(XSharpMsBuildDir)\XSharp.Default.props" />
   <PropertyGroup>
     <ProjectGuid>32baed1b-1f25-43e2-82e9-61e20f0a990c</ProjectGuid>
@@ -12,6 +11,8 @@
     <OutputName>TelloXSharp</OutputName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <StartupObject />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,21 +22,6 @@
   </PropertyGroup>
   <Import Project="$(XSharpMsBuildDir)\XSharp.targets" />
   <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099">
-      <Name>OpenCvSharp</Name>
-      <AssemblyName>OpenCvSharp.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\OpenCvSharp4.4.8.0.20230708\lib\net48\OpenCvSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.WpfExtensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <Name>OpenCvSharp.WpfExtensions</Name>
-      <AssemblyName>OpenCvSharp.WpfExtensions.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\OpenCvSharp4.WpfExtensions.4.8.0.20230708\lib\net48\OpenCvSharp.WpfExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="PresentationCore">
       <Name>PresentationCore</Name>
       <SpecificVersion>False</SpecificVersion>
@@ -46,79 +32,6 @@
       <SpecificVersion>False</SpecificVersion>
       <AssemblyName>PresentationFramework.dll</AssemblyName>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <Name>System.Buffers</Name>
-      <AssemblyName>System.Buffers.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Drawing">
-      <Name>System.Drawing</Name>
-      <SpecificVersion>False</SpecificVersion>
-      <AssemblyName>System.Drawing.dll</AssemblyName>
-    </Reference>
-    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <Name>System.Drawing.Common</Name>
-      <AssemblyName>System.Drawing.Common.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <Name>System.Memory</Name>
-      <AssemblyName>System.Memory.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics">
-      <Name>System.Numerics</Name>
-      <SpecificVersion>False</SpecificVersion>
-      <AssemblyName>System.Numerics.dll</AssemblyName>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Name>System.Numerics.Vectors</Name>
-      <AssemblyName>System.Numerics.Vectors.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Name>System.Runtime.CompilerServices.Unsafe</Name>
-      <AssemblyName>System.Runtime.CompilerServices.Unsafe.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security">
-      <Name>System.Security</Name>
-      <SpecificVersion>False</SpecificVersion>
-      <AssemblyName>System.Security.dll</AssemblyName>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
-      <Name>System.ValueTuple</Name>
-      <AssemblyName>System.ValueTuple.dll</AssemblyName>
-      <SpecificVersion>False</SpecificVersion>
-      <Private>True</Private>
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web">
-      <Name>System.Web</Name>
-      <SpecificVersion>False</SpecificVersion>
-      <AssemblyName>System.Web.dll</AssemblyName>
-    </Reference>
-    <Reference Include="System.Xaml">
-      <Name>System.Xaml</Name>
-      <SpecificVersion>False</SpecificVersion>
-      <AssemblyName>System.Xaml.dll</AssemblyName>
-    </Reference>
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase">
       <Name>WindowsBase</Name>
       <SpecificVersion>False</SpecificVersion>
@@ -138,14 +51,19 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TelloLibrary\3-TelloLibrary.xsproj">
       <Name>3-TelloLibrary</Name>
       <Project>{d56b6653-8cfa-4a04-81fc-74bc58fe9120}</Project>
       <Private>True</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="OpenCvSharp4.Windows">
+      <Version>4.8.0.20230708</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime">
+      <Version>4.3.1</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PreBuildEvent />
@@ -157,10 +75,4 @@
     <PostBuildEvent />
     <RunPostBuildEvent />
   </PropertyGroup>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\net48\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.8.0.20230708\build\net48\OpenCvSharp4.runtime.win.props'))" />
-  </Target>
 </Project>

@@ -9,6 +9,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <Name>1-SimpleTello</Name>
     <OutputName>SimpleTello</OutputName>
+    <StartupObject />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

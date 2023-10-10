@@ -347,7 +347,7 @@ BEGIN NAMESPACE TelloLibrary
 						END LOCK
 					ENDIF
 					
-				CATCH ex AS Exception
+				CATCH AS Exception
 					IF action:ActionType == TelloAction.ActionTypes.Command
 						//drone is probably already in command mode. Continue
 						RETURN Response.OK:ToString()
