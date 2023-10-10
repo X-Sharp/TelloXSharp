@@ -132,7 +132,8 @@ BEGIN NAMESPACE TelloXSharp
 				END SWITCH
 			UNTIL !(cmdCode != 0)
 			Console.WriteLine("Press Return to Exit.")
-			Console.ReadLine()
+            Console.ReadLine()
+            capture:Dispose()
 			drone:Dispose()
 
 

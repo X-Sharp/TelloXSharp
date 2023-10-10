@@ -132,7 +132,8 @@ BEGIN NAMESPACE TelloScript
 				ENDCASE
 			NEXT
 			Console.WriteLine("Press Return to exit.")
-			Console.ReadLine()
+            Console.ReadLine()
+            capture:Dispose()
 			drone:Dispose()
 
 
